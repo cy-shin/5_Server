@@ -20,15 +20,16 @@ import javax.servlet.http.HttpServletResponse;
 /* 앞으로 이렇게 작성 안함!!
  * -> 왜? @WebServlet() 어노테이션이 자동 완성 해줌
  *    <servlet>
-      <servlet-name>signUp</servlet-name>
-      <servlet-class>edu.kh.servlet.controller.ServletEx3</servlet-class>
-   	  </servlet>
-   
-   <servlet-mapping>
-      <servlet-name>signUp</servlet-name>
-      <url-pattern>/signUp</url-pattern>
-   </servlet-mapping>
- * */
+ *     <servlet-name>signUp</servlet-name>
+ *     <servlet-class>edu.kh.servlet.controller.ServletEx3</servlet-class>
+ *  	  </servlet>
+ *  
+ *  <servlet-mapping>
+ *     <servlet-name>signUp</servlet-name>
+ *     <url-pattern>/signUp</url-pattern>
+ *  </servlet-mapping>
+ ***/
+
 
 
 
