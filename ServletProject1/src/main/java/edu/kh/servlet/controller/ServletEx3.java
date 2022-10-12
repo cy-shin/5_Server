@@ -48,7 +48,6 @@ public class ServletEx3 extends HttpServlet{
 		req.setCharacterEncoding("UTF-8");
 		// 한글이 안 깨짐!
 		
-		
 		// 파라미터를 얻어와 변수에 저장
 		String inputId = req.getParameter("inputId");
 		
