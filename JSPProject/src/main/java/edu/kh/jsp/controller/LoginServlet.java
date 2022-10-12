@@ -84,10 +84,39 @@ public class LoginServlet extends HttpServlet {
 		// 무엇을? 요청에 대한 응답화면을 만들어 클라이언트에게 출력하는 역할
 		
 		// req.getRequestDispatcher("JSP 경로")
+		// - HttpServletRequest 객체가 생성될 때
+		//   내부에 요청을 위임하는 객체를 생성하는 방법을 포함하고 있음
+		
+		// ** JSP 경로 작성 방법 **
+		// **** -> webapp폴더를 기준으로 파일 경로 작성 *****
+		
+		// ex) /WEB-INF/views/loginResult.jsp
+		// webapp 폴더 내부에 존재하는 WEB-INF 폴더
+		// WEB-INF 폴더 내부에 존재하는 views 폴더
+		// views 폴더 내부에 존재하는 loginResult.jsp 파일 선택
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/loginResult.jsp");
-		dispatcher.forward(req, resp);
 		
+		// ***** forward *****
+		// - 보내다, 전달하다, 전송하다
+		// - HttpServletRequest, HttpServletResponse를 매개변수로 전달
+		//   왜? JSP가 요청 데이터(req)를 이용해서 화면을 만들고
+		//   클라이언트에게 응답(resp)하기 위해서 매개변수로 전달
+		
+		// - forward는 페이지 이동을 직접 하지 않음
+		//   Servlet의 역할 중 응답화면 출력 역할을 분업한 JSP에게 req, resp를 전달만 해줌
+		//   -> jsp가 응답을 대신해줄 뿐임
+		//   결론 : 페이지 이동 X -> 주소창의 요청 주소도 변하지 않는다!
+		
+		// req.setAttribute(String key, Object value)(Map형식)
+		// Attribute 데이터(값)을 의미함
+		
+		req.setAttribute("r", result);
+							// Object로 업캐스팅 된 상태
+		
+		dispatcher.forward(req, resp);
+		// req 요청 관련 정보, 데이터 <-- 값을 저장하는 용도에 적합함
+		// resp 응답 관련 기능, 속성 등
 		
 	}
 }
