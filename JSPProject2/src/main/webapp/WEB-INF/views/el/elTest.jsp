@@ -44,5 +44,24 @@
 이름 : 
         <button>제출하기</button>
     </form>
+
+
+
+    <hr>
+
+    <ul>
+        <li>
+            <%-- 요청이 위임되지 않아서 빈 칸이 출력됨 --%>
+            request scope message : ${message}
+        </li>
+        <li>
+            <%-- 브라우저가 꺼질때까지 기록이 남음 --%>
+            session scope sessionValue : ${sessionValue}
+        </li>
+        <li>
+            application scope appValue : ${appValue}
+        </li>
+    </ul>
+
 </body>
 </html>

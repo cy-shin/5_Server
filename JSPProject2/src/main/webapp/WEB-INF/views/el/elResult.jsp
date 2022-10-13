@@ -82,20 +82,43 @@
 
     <h3>EL에서 null과 '비어있다'에 대한 처리 방법</h3>
     <%-- null : 참조 X, 비어있다 : 객체 O 내용 X --%>
-    <h4 style="color:red">EL은 null도 빈칸으로 인식 -> null과 비어있다를 구별하지 못함</h4>
-
     <h4>empty : 비어있거나 null인지를 검사하는 연산자</h4>
+	
+	<h4>\${ 값 == null } or \${값 eq null} : null인지 검사하는 방법</h4> <!-- eq : equals -->
 
+	<h4>\${ 값 != null } or \${값 ne null} : null인지 아닌지 검사하는 방법</h4> <!-- ne : not equals -->
+	
     <% 
         List<String> list = null; // import 필요
     %>
+
 	<pre>
-		list2 = null; // null
-		list3 = new ArrayList(); // 비어있는 리스트
-		list4 = new ArrayList();
-		list4.add("테스트");
+		list2 == null : ${list2 == null} <br>
+		list2 eq null : ${list2 eq null} <br>
+		list2 != null : ${list2 != null} <br>
+		list2 ne null : ${list2 ne null} <br>
 		
-    	[표현식]
+		empty list2 : ${empty list2}
+		--> empty가 null도 비었다고 판단하고 있음
+		
+		list3 eq null : ${list3 eq null} <br>
+		
+		empty list3 : ${empty list3}
+		--> list3 : null은 아니지만 비어있음
+		
+		list3에 요소가 추가되어 있는가? ${!empty list3}
+		list3에 요소가 추가되어 있는가? ${not empty list3}
+				
+		--> list4 : null도 아니고, 요소도 1개 추가되어 있음
+		
+		list4에 요소가 추가되어 있는가? ${!empty list4}
+		list4에 요소가 추가되어 있는가? ${not empty list4}		
+		
+		<!-- java : list4.get(0) -->
+		list4의 0번 인덱스에 존재하는 값 : ${ list4[0] }
+		--> EL은 List에 존재하는 요소를 얻어올 때 배열처럼 [index번호]를 입력해서 얻어온다.
+		
+<%--     	[표현식]
     	list2 : <%= request.getAttribute("list2") == null %>
     	list3 : <%= request.getAttribute("list3") == null %>
     	list4 : <%= request.getAttribute("list4") == null %>
@@ -107,7 +130,7 @@
 		
 		* empty 연산자를 이용하면 null과 비어있다를 구분할 수 없기 때문에
 		  servlet에서 추가적인 값을 세팅해서 위임하기 전에
-		  이를 구분할 수 있는 방법을 작성해야 한다.
+		  이를 구분할 수 있는 방법을 작성해야 한다. --%>
 	</pre>
 </body>
 </html>

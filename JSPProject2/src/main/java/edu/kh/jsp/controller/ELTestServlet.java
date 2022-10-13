@@ -72,18 +72,6 @@ public class ELTestServlet extends HttpServlet {
 		req.setAttribute("list3", list3);
 		req.setAttribute("list4", list4);
 		
-		int result = 0;
-		if(list2 == null) { // null인 경우에는 0
-			result = 0;
-		} else if(list2.isEmpty()) { // 비어있는 경우에는 1
-			result = 1;
-		} else { // 값이 있는 List인 경우 2
-			result = 2;
-		}
-		
-		req.setAttribute("result", result);
-		// jsp에서 result를 이용해 각 result값에 맞는 화면을 만듦
-		
 		// JSP로 요청 위임
 		dispatcher.forward(req, resp);
 	}
