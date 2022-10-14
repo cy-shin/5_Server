@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>c:forEach 향상된 for문처럼 사용하기</title>
 
-    <link rel="stylesheets" href="forEach.css" type="text/css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     param.lang : 파라미터 중 lang의 값을 얻어와 출력 <br> 

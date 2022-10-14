@@ -40,7 +40,7 @@
         <li>https://tomcat.apache.org/download-taglibs.cgi</li>
         <li> Jar Files -> Impl, Spec, EL </li>
         <li>webapp/WEB-INF/lib 폴더에 추가</li>
-        <li>* JDBC에서는 classpaht를 이용해 라이브러리를 추가했지만 웹에서는 lib에 직접 추가함</li>
+        <li>* JDBC에서는 classpath를 이용해 라이브러리를 추가했지만 웹에서는 lib에 직접 추가함</li>
     </ol>
     
     <hr>

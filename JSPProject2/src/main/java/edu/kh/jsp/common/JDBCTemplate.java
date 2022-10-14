@@ -41,7 +41,7 @@ public class JDBCTemplate {
             Properties prop = new Properties();
             // Map<String, String> 형태의 객체, XML 입출력 특화
             
-            String filePath = JDBCTemplate.class.getResource("/edu/kh/jsp/sql/drivet/driver.xml").getPath();
+            String filePath = JDBCTemplate.class.getResource("/edu/kh/jsp/sql/driver.xml").getPath();
             // driver.xml 파일 읽어오기
             prop.loadFromXML( new FileInputStream(filePath) );
             // -> XML 파일에 작성된 내용이 Properties 객체에 모두 저장됨.
