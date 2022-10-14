@@ -64,6 +64,8 @@
         <li>
             application scope appValue : ${appValue}
         </li>
+        
+        <
     </ul>
 
     <hr>
@@ -74,6 +76,6 @@
 	<h3>session의 str 값 : ${sessionScope.str}</h3>
 	<h3>application의 str 값 : ${applicationScope.str}</h3>
 
-
+	
 </body>
 </html>

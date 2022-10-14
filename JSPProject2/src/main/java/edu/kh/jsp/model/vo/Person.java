@@ -9,6 +9,17 @@ public class Person {
 	// 기본생성자
 	public Person() {}
 	
+	
+	// 매개 변수 생성자
+	public Person(String name, int age, String address) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.address = address;
+	}
+
+
+
 	// getter / setter
 	public void setName(String name) {
 		this.name = name;
@@ -34,5 +45,6 @@ public class Person {
 	public String toString() {
 		return name + " / " + age + " / " + address;
 	}
+	
 	
 }
