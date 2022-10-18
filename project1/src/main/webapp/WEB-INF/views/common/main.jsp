@@ -30,6 +30,12 @@
             </section>
 
             <section class="content-2">
+
+            <%-- 로그인 여부에 따라 출력 화면 변경 --%>
+            <c:choose>
+
+            <%-- 로그인 x인 경우 --%>
+                <c:when test = "${empty sessionScope.loginMember}">
                        <%-- 절대 경로 방식 (현재 /가 프로젝트 최상위) --%>
                 <form action="/member/login" name="login-frm" method="POST">
                     <!-- frm form -->
@@ -37,7 +43,8 @@
                     <fieldset id="id-pw-area"> 
                         <!-- 아이디/비밀번호 -->
                         <section>
-                            <input type="text" name="inputEmail" placeholder="이메일" autocomplete="off">
+                            <input type="text" name="inputEmail" placeholder="이메일" autocomplete="off" value="${cookie.saveId.value}">
+                                                                                                    <%-- 쿠키 중 saveId에 저장된 값 --%>
                             <input type="password" name="inputPw" placeholder="비밀번호">
                         </section>
         
@@ -48,10 +55,17 @@
                         </section>
                     </fieldset>
         
+                    <%-- 쿠키에 saveId가 있을 경우 --%>
+                    <c:if test="${!empty cookie.saveId}">
+                        <%-- temp 변수 선언 --%>
+                        <c:set var="temp" value="checked" />
+                        <%-- c:set은 pageScope로 page 어디서든 사용 가능하며, if문 밖에서도 유효함 --%>
+                    </c:if>
                     <!-- 아이디 저장 체크박스 -->
                     <!-- label 태그 내부에 input 태그를 작성하면 label for="id"를 작성한 것처럼 만들어짐 -->
                     <label>
-                        <input type="checkbox" name="saveId"> 아이디 저장
+                        <input type="checkbox" name="saveId" ${temp}> 아이디 저장
+                        <%-- 쿠키가 없을경우 temp=null, el은 null을 빈칸으로 처리함 --%>
                     </label>
         
                     <!-- 회원가입, ID/PW찾기 -->
@@ -61,6 +75,27 @@
                         <a href="#">ID/PW찾기</a>
                     </article>
                 </form>
+                </c:when>
+
+                <%-- 로그인 ㅇ인 경우 --%>
+                <c:otherwise>
+                    <article class="login-area">
+                    <a href="#">
+                        <img id = "member-profile" src="/resources/images/dog.jpg">
+                    </a>
+
+                    <!--회원 정보 + 로그아웃 버튼 -->
+                    <div class="my-info">
+                        <div>
+                            <a href="#" id="nickname">${loginMember.memberNickName}</a>
+                            <a href="/member/logout" id="logout-btn">로그아웃</a>
+                        </div>
+                        <p>${loginMember.memberEmail}</p>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+
+
 
 
             </section>
