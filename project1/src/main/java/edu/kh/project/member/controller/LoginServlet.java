@@ -48,9 +48,27 @@ public class LoginServlet extends HttpServlet{
 			dispatcher.forward(req, resp); */
 			
 			// *** redirect(재요청) ***
-			// - servlet이 다른 주소를 요청함
+			// - Servlet이 다른 주소를 요청함
+			// - 요청에 대한 응답화면을 직접 만드는 것이 아닌
+			//   다른 응답화면을 구현하는 Servlet을 요청하여 대신 화면을 만들게 함
 			
+			req.setAttribute("loginMember", loginMember);
+			// 메인 페이지로 redirect
+			// -> 메인 페이지를 요청한 것이기 때문에
+			//    주소창에 주소가 메인 페이지 주소로 바뀌어 있다.
+			resp.sendRedirect("/");
 			
+			/* forward / redirect 차이점
+			 * forward
+			 * - 주소창 변화 x
+			 * - JSP 경로 작성
+			 * - req, resp가 유지됨
+			 * 
+			 * redirect
+			 * - 주소창 변화 O
+			 * - 요청 주소 작성
+			 * - req, resp가 유지되지 않음
+			 **/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
