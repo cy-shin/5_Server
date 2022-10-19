@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인 결과 페이지</title>
+<title>로그인 결과 페이지</title> ㅠ
 
 <style>
 	h1{
