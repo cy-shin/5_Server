@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Properties;
+import org.eclipse.jdt.internal.compiler.lookup.MemberTypeBinding;
 
 import edu.kh.project.member.model.vo.Member;
 
@@ -122,4 +123,27 @@ public class MemberDAO {
 		
 		return result;
 	}
+
+	public int updateMember(Connection conn, Member member) throws Exception {
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("updateMember");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getMemberNickName());
+			pstmt.setString(2, member.getMemberTel());
+			pstmt.setString(3, member.getMemberAddress());
+			pstmt.setInt(4, member.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
 }

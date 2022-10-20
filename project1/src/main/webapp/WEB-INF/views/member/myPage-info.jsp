@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>마이 페이지</title>
     <%-- webapp을 기준? --%>
     <link rel="stylesheet" href="/resources/css/main-style.css">
     <link rel="stylesheet" href="/resources/css/myPage-style.css">
@@ -30,7 +30,10 @@
             <section class="myPage-main">
                 <h1 class="myPage-title">내 정보</h1>
                 <span class="myPage-subject">원하는 회원 정보를 수정할 수 있습니다.</span>
-                <form action="#" method="POST" name="myPage-frm">
+                <%-- 절대경로 : /member/myPage/info --%>
+                <%-- 상대경로 : info --%>
+                <form action="info" method="POST" name="myPage-frm">
+
 
                     <div class="myPage-row">
                         <label>닉네임</label>
@@ -47,19 +50,19 @@
                     </div>
 
                     <div class="myPage-row info-address">
-                        <input type="text" name="memberAddress" value="12345" placeholder="우편번호">
+                        <input type="text" name="memberAddress" value="${addr[0]}" placeholder="우편번호">
                         <button type="button">검색</button>
                     </div>
 
                     <%-- split(문자열, 구분자) : 문자열을 구분자로 쪼개서 배열로 반환 --%>
-                    <c:set var="addr" value="${fn:split(loginMember.memberAddress, ',,')}"
+                    <c:set var="addr" value="${fn:split(loginMember.memberAddress, ',,')}" />
 
                     <div class="myPage-row info-address">
-                        <input type="text" name="memberAddress" value="서울시 중구 남대문로 120" placeholder="도로명 / 지번 주소">
+                        <input type="text" name="memberAddress" value="${addr[1]}" placeholder="도로명 / 지번 주소">
                     </div>
 
                     <div class="myPage-row info-address">
-                        <input type="text" name="memberAddress" value="2층" placeholder="상세 주소">
+                        <input type="text" name="memberAddress" value="${addr[2]}" placeholder="상세 주소">
                     </div>
 
                     <button class="myPage-submit">수정하기</button>
