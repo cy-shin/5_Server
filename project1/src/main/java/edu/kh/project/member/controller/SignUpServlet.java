@@ -27,7 +27,8 @@ public class SignUpServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		MemberService service = new MemberService();
 
-		req.setCharacterEncoding("UTF-8");
+		// 데이터 문자 인코딩 변환
+		// req.setCharacterEncoding("UTF-8");
 		
 		String memberEmail = req.getParameter("memberEmail");
 		String memberPw = req.getParameter("memberPw");
